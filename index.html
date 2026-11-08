@@ -1,389 +1,233 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <meta charset="UTF-8">
-    <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saisumanth Orupula | DevOps &amp; Playwright Engineer</title>
+  <meta name="description" content="Portfolio of Saisumanth Orupula, a DevOps and Playwright automation engineer skilled in TypeScript, Cucumber, Azure DevOps, GitHub Actions and Docker.">
+  <meta name="author" content="Saisumanth Orupula">
 
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Saisumanth Orupula | DevOps &amp; Playwright Engineer">
+  <meta property="og:description" content="Test automation and DevOps CI/CD portfolio.">
+  <meta property="og:image" content="images/myphoto.jpg">
 
-   <!-- Latest compiled and minified CSS-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
- <!--jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!--Latest compiled JavaScript-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-      <title>saisumanth orupula</title>
-      
-
-    </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-  <!-- Navbar (Sits on top)-->
-  <nav class="navigation">
-<div id="navbar" class="w3-top w3-bar w3-white w3-wide w3-padding w3-card">
-  <a href="#" class="w3-bar-item w3-button w3-hover-blue"> Sum@nth</a>
-  
-  <!-- Float links to the right. Hide them on small screens--> 
-  <div class="w3-right w3-hide-small">
-  <a href="#home" class="w3-bar-item w3-button  w3-hide-small w3-hover-blue">Home</a>
-  <a href="#about" class="w3-bar-item w3-button w3-hover-blue">About</a>
-  <a href="#skill" class="w3-bar-item w3-button w3-hover-blue">Skills</a>
-  <a href="#" class="w3-bar-item w3-button w3-hover-blue">Works</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-hover-blue">Contact</a>
-  </div>
-  
-
- <!--menu bar on small--> 
-<div class="w3-right w3-hide-large w3-border-0 w3-padding w3-hide-medium">
-    <a  href="javascript:vo id(0)" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+  <!-- Navbar -->
+  <nav id="navbar" aria-label="Main navigation">
+    <a href="#home" class="brand">Sum@nth</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skill">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#home" class="w3-bar-item w3-button w3-hover-blue">Home</a>
-        <a href="#about" class="w3-bar-item w3-button w3-hover-blue">About</a>
-        <a href="#skill" class="w3-bar-item w3-button w3-hover-blue">Skills</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-blue">Works</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hover-blue">Contact</a>
+  <main>
+    <!-- Home -->
+    <section id="home" class="hero" role="region" aria-roledescription="carousel" aria-label="Highlights">
+      <div class="slides" id="slides">
+        <figure class="slide slide-photo active" aria-label="Slide 1 of 2">
+          <img src="images/myphoto.jpg" alt="Saisumanth Orupula" title="Saisumanth Orupula">
+        </figure>
+        <figure class="slide slide-logo" aria-label="Slide 2 of 2">
+          <img src="images/accenture-logo-2.jpg" alt="Accenture" title="Accenture">
+        </figure>
       </div>
-    
-</div>
-</nav>
-
-
-<!--<div>
-<nav  id="navbar" class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="w3-hover-blue" class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand w3-hover-blue" href="#">Sum@nth</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-   
-      <ul class="nav navbar-nav navbar-right">
-        <li><a class="w3-hover-blue" href="#"><span class="glyphicon glyphicon-user"></span>Home</a></li>
-        <li><a class="w3-hover-blue" href="#">About</a></li>
-         <li><a class="w3-hover-blue" href="#">Skills</a></li>
-          <li><a class="w3-hover-blue" href="#">Work</a></li>
-           <li><a class="w3-hover-blue" href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>-->
-
-  
-
-  
-  
-
-  <!--page start-->
-          <div class="w3-conatainer w3-card-4 w3-margin">
-            <div>
-          <img class="w3-animate-fading img-responsive" src="myphoto.jpg" alt="photo" title="Saisumanth orupula" width="100%">
-          <!--<h1 class="w3-display-bottommiddle w3-section w3-blue" width="50%">sai sumanth orupula</h1>-->
-            </div>
-      
-</div>
-<!--home page ends-->
-
-<br>
-<br>
-<br>
-<br>
-<!--***********************************************************************************************************************-->
-<!--About-->
-
-<div id="about" class="w3-container w3-card w3-margin">
-  <div class="w3-center"> 
-    <h1>About me</h1>
+      <div class="dots" id="dots" role="group" aria-label="Choose slide">
+        <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Show slide 2"></button>
       </div>
-    
+    </section>
 
-
-<!--content in about-->
-<div class="w3-content w3-animate-zoom">
-  <div class="w3-row">
-<div class="col-sm-6 w3-section" >
-  <img class="img-responsive animate-box" data-animate-effect="fadeInRight" src="about.jpeg" title="saisumanth" width="190" height="120">
-  <h4><strong>Devops&Playwright Engineer </strong></h4>
-  <p><strong>Mobile:</strong>+91 95xxxxxx95</p>
-</div>
-
-<div class="col-sm-6 w3-section">
-    <p>Iam <strong>Saisumanth orupula</strong> compluted my graduation with stream of computer science and engineering at 
-      Dadi institute of engineering and technology.I am passionate about software quality, test automation, and DevOps practices, with a strong focus on building reliable and scalable automation solutions. </p>
-    <br>
-      <p>I have hands-on experience with modern automation technologies, including <strong>Playwright</strong>, and enjoy creating robust, maintainable, and reusable end-to-end test frameworks. I am also interested in <strong>DevOps and CI/CD practices</strong>, where I can integrate automated testing into development pipelines to improve software quality, accelerate delivery, and provide faster feedback.</p>
-  <br>
-
-      <p> I am passionate about continuously learning new technologies and applying them to solve real-world challenges. My goal is to combine test automation and DevOps practices to deliver high-quality, reliable, and efficient software. </p>
-</div>
-</div>
-</div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-
-<!--************************************************************************************************************************************************-->
-<!--skill -->
-
-<div class="w3-container w3-card w3-margin">
-  <div class="w3-center">
-  <h1 id="skill">Skills</h1>
-  </div>
-
-  <!--content in skill-->
-   <div class="w3-row w3-row-padding w3-animate-zoom w3-content">
-<div class="col-sm-6 w3-section animate-box" data-animate-effect="fadeInRight">
-  <div class="progress">
-     <div class="progress-bar-info w3-container" style="width:95%">
-      Playwright
-     </div>
-      <a >6</a>
-     </div>
-     
-  
-
-    <div class="progress">
-      <div class="progress-bar-info w3-container" role="progress bar" style="width:80%">
-       Typescript
-       </div>
-      90%
-      </div>
-    
-
-      <div class="progress">
-        <div class="progress-bar-info w3-container" role="progress bar" style="width:85%">
-         Cucumber
-         </div>
-        90%
+    <!-- About -->
+    <section id="about" class="section">
+      <h1>About me</h1>
+      <p class="about-role">DevOps &amp; Playwright Engineer</p>
+      <div class="about-text">
+        <div>
+          <p>I am <strong>Saisumanth Orupula</strong>. I completed my graduation in Computer Science and Engineering at Dadi Institute of Engineering and Technology. I am passionate about software quality, test automation, and DevOps practices, with a strong focus on building reliable and scalable automation solutions.</p>
+          <p>I have hands-on experience with modern automation technologies, including <strong>Playwright</strong>, and enjoy creating robust, maintainable, and reusable end-to-end test frameworks. I am also interested in <strong>DevOps and CI/CD practices</strong>, where I can integrate automated testing into development pipelines to improve software quality, accelerate delivery, and provide faster feedback.</p>
+          <p>I am passionate about continuously learning new technologies and applying them to solve real-world challenges. My goal is to combine test automation and DevOps practices to deliver high-quality, reliable, and efficient software.</p>
         </div>
-   
+      </div>
+    </section>
 
-        <div class="progress">
-          <div class="progress-bar-info w3-container" role="progress bar" style="width:90%">
-           Azure Devops
-           </div>
-          90%
+    <!-- Skills -->
+    <section id="skill" class="section">
+      <h1>Skills</h1>
+      <div class="grid">
+        <div>
+          <div class="skill">
+            <div class="skill-head"><span>Playwright</span><span>95%</span></div>
+            <div class="bar"><span style="width:95%"></span></div>
           </div>
+          <div class="skill">
+            <div class="skill-head"><span>TypeScript</span><span>80%</span></div>
+            <div class="bar"><span style="width:80%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head"><span>Cucumber</span><span>85%</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head"><span>Azure DevOps</span><span>90%</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head"><span>GitHub Actions</span><span>90%</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head"><span>Docker</span><span>60%</span></div>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+        </div>
+        <div>
+          <p>Based on my skills and experience, I can design and develop robust end-to-end automation frameworks using <strong>Playwright</strong>, ensuring reliable, scalable, and maintainable test automation across different browsers and environments. I can also integrate automated testing into <strong>DevOps CI/CD pipelines</strong>, enabling continuous testing, faster feedback, and consistent software delivery. Additionally, I focus on building flexible and reusable automation solutions that can adapt to evolving application requirements.</p>
+          <div class="skill-image">
+            <img src="images/skill.jpg" alt="Skills overview" loading="lazy" width="400" height="200">
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="progress">
-            <div class="progress-bar-info w3-container" role="progress bar" style="width:90%">
-             Github Actions
-             </div>
-            90%
-            </div>
-
-
-            <div class="progress">
-              <div class="progress-bar-info w3-container" role="progress bar" style="width:60%">
-               Docker
-               </div>
-              90%
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <h1>Experience</h1>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-top">
+            <img class="job-logo" src="images/accenture-logo.jpeg" alt="Accenture logo" loading="lazy" width="72" height="72">
+            <div class="job-title">
+              <div class="job-head">
+                <h2>Automation Engineer</h2>
+                <span class="job-period">May 2024 – Present</span>
               </div>
-</div>
+              <p class="job-company">Accenture</p>
+            </div>
+          </div>
+          <ul>
+            <li>Designed, built and maintained end-to-end test automation frameworks using <strong>Playwright</strong> and <strong>TypeScript</strong>.</li>
+            <li>Automated <strong>400+ test cases</strong> covering key business flows, cutting repetitive manual regression effort.</li>
+            <li>Wrote behaviour-driven tests with <strong>Cucumber</strong> so that test scenarios stay readable for both testers and business stakeholders.</li>
+            <li>Integrated automated test suites into <strong>Azure DevOps</strong> and <strong>GitHub Actions</strong> CI/CD pipelines to give the team fast feedback on every change.</li>
+            <li>Containerised test execution with <strong>Docker</strong> for consistent runs across local and pipeline environments.</li>
+            <li>Ran cross-browser tests and analysed failures, reducing flaky tests and improving the reliability of the regression suite.</li>
+            <li>Created reusable page objects, utilities and test data helpers to make the framework easier to maintain and extend.</li>
+            <li>Worked closely with developers, QA and DevOps teams in an Agile setup, taking part in sprint planning, reviews and defect triage.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-<div class="col-sm-6 w3-section">
-  <p> Based on my skills and experience, I can design and develop robust end-to-end automation frameworks using <strong>Playwright</strong>, ensuring reliable, scalable, and maintainable test automation across different browsers and environments. I can also integrate automated testing into <strong>DevOps CI/CD pipelines</strong>, enabling continuous testing, faster feedback, and consistent software delivery. Additionally, I focus on building flexible and reusable automation solutions that can adapt to evolving application requirements. </p>
-<div id="skillimage">
-  <img class="img-responsive" src="skill.jpg" width="400" height="200" >
-</div>
-</div>
-</div>
-</div>
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h1>Contact</h1>
+      <div class="grid">
+        <div class="contact-form">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfuhgdWlYV8iMJC8bguKmS8H5Ooi8yDlb49gmOl37cpXKX_FA/viewform?embedded=true" title="Contact form" loading="lazy">Loading…</iframe>
+        </div>
+        <div>
+          <p>Feel free to connect with me through the social media platforms below. Don't hesitate to reach out — I'd be happy to connect and discuss ideas, opportunities, or potential collaborations.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/sai.orupula" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="mailto:saisumanthorupula@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/saisumanthorupula/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://github.com/sumanth83" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/_sumanthuuu_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <span>&copy; <span id="year">2026</span> Saisumanth Orupula</span>
+    <a class="visitors" href="https://hits.sh/saisumanthorupula.github.io/portfolio/" target="_blank" rel="noopener noreferrer" title="Total page views">
+      <img src="https://hits.sh/saisumanthorupula.github.io/portfolio.svg?style=flat-square&label=Visitors&color=2196f3" alt="Visitor count" height="20">
+    </a>
+    <a href="#home" class="to-top" aria-label="Back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+  </footer>
 
-<br>
-<br>
-<br>
-<br>
+  <script>
+    // Mobile menu toggle
+    var toggle = document.getElementById("navToggle");
+    var links = document.getElementById("navLinks");
 
-<!--***********************************************************************************************************************************************-->
-<!--work
-<div class="w3-container w3-center w3-card w3-margin">
-  <h1>works</h1>
-</div>
-
-
-<br>
-<br>
-<br>
-<br>-->
-
-<!--****************************************************************************-->
-<!--contact-->
-<div class="w3-container w3-card w3-margin">
-  <div class="w3-center">
-  <h1 id="contact">contact</h1>
-  </div>
-
-
-   <div class="w3-content w3-section w3-animate-zoom">
-  <div class="w3-row">
- <div class="col-sm-6">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfuhgdWlYV8iMJC8bguKmS8H5Ooi8yDlb49gmOl37cpXKX_FA/viewform?embedded=true" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
- </div>
-
-  <div class="col-sm-6 w3-section">
-    <p>Feel free to connect with me through the social media platforms below. Don't hesitate to reach out — I'd be happy to connect and discuss ideas, opportunities, or potential collaborations.</p>
-  
-
-  <div>
-    <a class="w3-padding w3-grey w3-hover-blue" href="https://www.facebook.com/sai.orupula" target="_blank"><i class="fa fa-facebook"></i></a>
-    <a class="w3-padding w3-grey w3-hover-blue" href="mailto:saisumanthorupula@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-    <a class=" w3-padding w3-grey w3-hover-blue" href="https://www.linkedin.com/in/saisumanthorupula/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a class="w3-padding  w3-grey w3-hover-blue" href="https://github.com/sumanth83" target="_blank"><i class="fa fa-github"></i></a>
- 
-    <!--<a class="w3-padding-large w3-grey w3-hover-blue" href="https://twitter.com/sai_itsme" target="_blank"><i class="fa fa-twitter"></i></a>-->
-    <a class="w3-padding w3-grey w3-hover-blue" href="https://www.instagram.com/_sumanthuuu_/" target="_blank"><i class="fa fa-instagram"></i></a>
-
-    
-    </div>
-  </div>
-  </div>
-  </div>
-</div>
-
-
-<br>
-<br>
-<br>
-<br>
-<!--**************************************end part***********************************************************************-->
-
-  
-<div class="w3-container w3-bar w3-white w3-card-4">
-<!--<p class="w3-bar-item w3-margin w3-center">visitiors count:
- hitwebcounter Code START
-
-
-  <img src="https://hitwebcounter.com/counter/counter.php?page=7812426&style=0006&nbdigits=8&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" />-->                                    
-                                      
-
-  <!--free visitors counters.com-->
-  
-  <a href='https://www.symptoma.com/en/info/covid-19'>Corona Virus 2020</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=cdbca1148e326d52cde8597bda5cc30a053cc1dc'></script>
-  <script type="text/javascript" src="https://freevisitorcounters.com/en/home/counter/826549/t/2"></script>
-  
- 
-<div class="w3-right w3-border w3-blue w3-border-blue w3-bottombar w3-leftbar w3-rightbar w3-margin w3-round-xlarge">
-  <a href="#" class="top-to-bottom"><i class="fa fa-chevron-up"></i></a>
- </div>
- 
-</div>
-
-
-
-  
-
-<script>
-  //MENU BAR ON SMALL SCREEN
-  function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-
-    //edit this message to say what you want
-    var message = "Sorry: Right click was disabled by developer.";
-
-    function clickIE() {
-        if (document.all) {
-            alert(message);
-            return false;
-        }
-    }
-    function clickNS(e) {
-        if (document.layers || (document.getElementById && !document.all)) {
-            if (e.which == 2 || e.which == 3) {
-                alert(message);
-                return false;
-            }
-        }
-    }
-    if (document.layers) {
-        document.captureEvents(Event.MOUSEDOWN);
-        document.onmousedown = clickNS;
-    }
-    else {
-        document.onmouseup = clickNS;
-        document.oncontextmenu = clickIE;
-    }
-
-    document.oncontextmenu = new Function("return false")
-
-
-    // When the user scrolls down 20px from the top of the document, slide down the navbar
-window.onscroll = function()
-{
-scrollFunction()
-}
-
-function scrollFunction() {
-  if (document.body.scrollTop >0 || document.documentElement.scrollTop >0) 
-  {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-}
-
-// Add scrollspy to <body>
-  $('body').scrollspy({target: ".navigation", offset: 50});
-
-// Add smooth scrolling on all links inside the navbar
-$("#navbar a").on('click', function(event) {
-
-  // Make sure this.hash has a value before overriding default behavior
-  if (this.hash !== "") {
-
-    // Prevent default anchor click behavior
-    event.preventDefault();
-
-    // Store hash
-    var hash = this.hash;
-
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 800, function(){
-
-    // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
     });
 
-  } // End if
+    // Close menu after choosing a link
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
 
-});
+    // Hero slider: auto-advances and loops, with clickable dots and swipe
+    (function () {
+      var hero = document.getElementById("home");
+      var slides = hero.querySelectorAll(".slide");
+      var dots = hero.querySelectorAll(".dot");
+      var box = document.getElementById("slides");
+      var current = 0, timer = null, DELAY = 4500;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      function show(n) {
+        current = (n + slides.length) % slides.length;
+        for (var i = 0; i < slides.length; i++) {
+          var on = i === current;
+          slides[i].classList.toggle("active", on);
+          dots[i].classList.toggle("active", on);
+          if (on) dots[i].setAttribute("aria-current", "true");
+          else dots[i].removeAttribute("aria-current");
+        }
+      }
+      function start() { if (!reduce && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
+      function stop() { clearInterval(timer); timer = null; }
 
-</script>
+      for (var i = 0; i < dots.length; i++) {
+        (function (n) { dots[n].addEventListener("click", function () { show(n); stop(); start(); }); })(i);
+      }
 
+      hero.addEventListener("mouseenter", stop);
+      hero.addEventListener("mouseleave", start);
+      document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+
+      // swipe on touch screens
+      var x0 = null;
+      box.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+      box.addEventListener("touchend", function (e) {
+        if (x0 !== null) {
+          var dx = e.changedTouches[0].clientX - x0;
+          if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+        }
+        x0 = null; start();
+      });
+
+      start();
+    })();
+
+    // Show a message on right click
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+      alert("Sorry: Right click was disabled by Sumanth.");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
- 
-    
