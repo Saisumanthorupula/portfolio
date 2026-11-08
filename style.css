@@ -93,7 +93,20 @@ main { padding-top: var(--nav-h); }
   align-items: start;
 }
 
-.about-photo { width: 190px; border-radius: 6px; margin-bottom: 1rem; }
+.about-role {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+  margin: -.5rem 0 1.5rem;
+}
+
+.about-text { max-width: 800px; margin: 0 auto; }
+.about-text p { margin: 0 0 1rem; }
+
+@media (max-width: 768px) {
+  .about-role { font-size: 1rem; margin-bottom: 1rem; }
+}
 
 /* ---------- Skills ---------- */
 .skill { margin-bottom: 1rem; }

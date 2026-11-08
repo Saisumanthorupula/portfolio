@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Saisumanth Orupula | DevOps &amp; Playwright Engineer">
   <meta property="og:description" content="Test automation and DevOps CI/CD portfolio.">
-  <meta property="og:image" content="myphoto.jpg">
+  <meta property="og:image" content="images/myphoto.jpg">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
@@ -34,17 +34,14 @@
   <main>
     <!-- Home -->
     <section id="home" class="hero">
-      <img src="myphoto.jpg" alt="Saisumanth Orupula" title="Saisumanth Orupula">
+      <img src="images/myphoto.jpg" alt="Saisumanth Orupula" title="Saisumanth Orupula">
     </section>
 
     <!-- About -->
     <section id="about" class="section">
       <h1>About me</h1>
-      <div class="grid">
-        <div>
-          <img class="about-photo" src="about.jpeg" alt="Saisumanth Orupula" loading="lazy" width="190">
-          <h4>DevOps &amp; Playwright Engineer</h4>
-        </div>
+      <p class="about-role">DevOps &amp; Playwright Engineer</p>
+      <div class="about-text">
         <div>
           <p>I am <strong>Saisumanth Orupula</strong>. I completed my graduation in Computer Science and Engineering at Dadi Institute of Engineering and Technology. I am passionate about software quality, test automation, and DevOps practices, with a strong focus on building reliable and scalable automation solutions.</p>
           <p>I have hands-on experience with modern automation technologies, including <strong>Playwright</strong>, and enjoy creating robust, maintainable, and reusable end-to-end test frameworks. I am also interested in <strong>DevOps and CI/CD practices</strong>, where I can integrate automated testing into development pipelines to improve software quality, accelerate delivery, and provide faster feedback.</p>
@@ -86,7 +83,7 @@
         <div>
           <p>Based on my skills and experience, I can design and develop robust end-to-end automation frameworks using <strong>Playwright</strong>, ensuring reliable, scalable, and maintainable test automation across different browsers and environments. I can also integrate automated testing into <strong>DevOps CI/CD pipelines</strong>, enabling continuous testing, faster feedback, and consistent software delivery. Additionally, I focus on building flexible and reusable automation solutions that can adapt to evolving application requirements.</p>
           <div class="skill-image">
-            <img src="skill.jpg" alt="Skills overview" loading="lazy" width="400" height="200">
+            <img src="images/skill.jpg" alt="Skills overview" loading="lazy" width="400" height="200">
           </div>
         </div>
       </div>
@@ -137,6 +134,12 @@
         links.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       }
+    });
+
+    // Show a message on right click
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+      alert("Sorry: Right click was disabled by Sumanth.");
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
