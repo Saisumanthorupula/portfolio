@@ -13,22 +13,36 @@
   <meta property="og:image" content="images/myphoto.jpg">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
+
+  <!-- Apply the saved (or device) theme before the page paints, to avoid a flash -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav id="navbar" aria-label="Main navigation">
     <a href="#home" class="brand">Sum@nth</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skill">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skill">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark mode">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+      </button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
   </nav>
 
@@ -43,9 +57,11 @@
           <img src="images/accenture-logo-2.jpg" alt="Accenture" title="Accenture">
         </figure>
       </div>
-      <div class="dots" id="dots" role="group" aria-label="Choose slide">
-        <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
-        <button class="dot" type="button" aria-label="Show slide 2"></button>
+      <div class="controls">
+        <div class="dots" id="dots" role="group" aria-label="Choose slide">
+          <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Show slide 2"></button>
+        </div>
       </div>
     </section>
 
@@ -55,8 +71,8 @@
       <p class="about-role">DevOps &amp; Playwright Engineer</p>
       <div class="about-text">
         <div>
-          <p>I am <strong>Saisumanth Orupula</strong>. I completed my graduation in Computer Science and Engineering at Dadi Institute of Engineering and Technology. I am passionate about software quality, test automation, and DevOps practices, with a strong focus on building reliable and scalable automation solutions.</p>
-          <p>I have hands-on experience with modern automation technologies, including <strong>Playwright</strong>, and enjoy creating robust, maintainable, and reusable end-to-end test frameworks. I am also interested in <strong>DevOps and CI/CD practices</strong>, where I can integrate automated testing into development pipelines to improve software quality, accelerate delivery, and provide faster feedback.</p>
+          <p>I am <strong>Saisumanth Orupula</strong>, an Automation Engineer at <strong>Accenture</strong>, specialising in <strong>web and mobile test automation</strong> and DevOps. I design and maintain end-to-end web automation frameworks with <strong>Playwright</strong> and <strong>TypeScript</strong>, and automate mobile apps on real Android devices with <strong>Appium</strong> and <strong>Selenium</strong> using <strong>Java</strong>, giving teams fast, dependable feedback on software quality.</p>
+          <p>I enjoy building robust, maintainable and reusable test frameworks for both web and mobile, and integrating automated testing into <strong>DevOps and CI/CD pipelines</strong> to improve software quality, accelerate delivery and provide faster feedback.</p>
           <p>I am passionate about continuously learning new technologies and applying them to solve real-world challenges. My goal is to combine test automation and DevOps practices to deliver high-quality, reliable, and efficient software.</p>
         </div>
       </div>
@@ -91,9 +107,18 @@
             <div class="skill-head"><span>Docker</span><span>60%</span></div>
             <div class="bar"><span style="width:60%"></span></div>
           </div>
+
+          <h3 class="tags-title">Also working with</h3>
+          <ul class="tags">
+            <li>API Testing</li>
+            <li>Mobile Automation</li>
+            <li>Appium</li>
+            <li>Selenium</li>
+            <li>Java</li>
+          </ul>
         </div>
         <div>
-          <p>Based on my skills and experience, I can design and develop robust end-to-end automation frameworks using <strong>Playwright</strong>, ensuring reliable, scalable, and maintainable test automation across different browsers and environments. I can also integrate automated testing into <strong>DevOps CI/CD pipelines</strong>, enabling continuous testing, faster feedback, and consistent software delivery. Additionally, I focus on building flexible and reusable automation solutions that can adapt to evolving application requirements.</p>
+          <p>Based on my skills and experience, I can design and develop robust end-to-end automation frameworks using <strong>Playwright</strong>, ensuring reliable, scalable, and maintainable test automation across different browsers and environments. I also cover the service layer with <strong>API testing</strong> and automate mobile apps with <strong>Appium</strong> and <strong>Selenium</strong> using <strong>Java</strong>. I can integrate automated testing into <strong>DevOps CI/CD pipelines</strong>, enabling continuous testing, faster feedback, and consistent software delivery. Additionally, I focus on building flexible and reusable automation solutions that can adapt to evolving application requirements.</p>
           <div class="skill-image">
             <img src="images/skill.jpg" alt="Skills overview" loading="lazy" width="400" height="200">
           </div>
@@ -119,6 +144,8 @@
           <ul>
             <li>Designed, built and maintained end-to-end test automation frameworks using <strong>Playwright</strong> and <strong>TypeScript</strong>.</li>
             <li>Automated <strong>400+ test cases</strong> covering key business flows, cutting repetitive manual regression effort.</li>
+            <li>Automated mobile test suites on <strong>real Android devices</strong> using <strong>Appium</strong> and <strong>Selenium</strong> with <strong>Java</strong>.</li>
+            <li>Built reusable <strong>Appium</strong> page objects and helper utilities in Java to keep mobile tests stable and easy to maintain across app releases.</li>
             <li>Wrote behaviour-driven tests with <strong>Cucumber</strong> so that test scenarios stay readable for both testers and business stakeholders.</li>
             <li>Integrated automated test suites into <strong>Azure DevOps</strong> and <strong>GitHub Actions</strong> CI/CD pipelines to give the team fast feedback on every change.</li>
             <li>Containerised test execution with <strong>Docker</strong> for consistent runs across local and pipeline environments.</li>
@@ -143,7 +170,7 @@
             <a href="https://www.facebook.com/sai.orupula" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             <a href="mailto:saisumanthorupula@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
             <a href="https://www.linkedin.com/in/saisumanthorupula/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://github.com/sumanth83" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href="https://github.com/Saisumanthorupula" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/_sumanthuuu_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -199,6 +226,10 @@
       function start() { if (!reduce && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
       function stop() { clearInterval(timer); timer = null; }
 
+      // keyboard users: don't move slides while focus is inside the slider
+      hero.addEventListener("focusin", stop);
+      hero.addEventListener("focusout", start);
+
       for (var i = 0; i < dots.length; i++) {
         (function (n) { dots[n].addEventListener("click", function () { show(n); stop(); start(); }); })(i);
       }
@@ -219,6 +250,30 @@
       });
 
       start();
+    })();
+
+    // Dark mode toggle (choice is remembered in the browser)
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("themeToggle");
+      var icon = btn.querySelector("i");
+
+      function apply(theme) {
+        root.setAttribute("data-theme", theme);
+        var dark = theme === "dark";
+        btn.setAttribute("aria-pressed", dark);
+        btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        btn.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+        icon.className = "fa " + (dark ? "fa-sun-o" : "fa-moon-o");
+      }
+
+      apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+      btn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        apply(next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
     })();
 
     // Show a message on right click

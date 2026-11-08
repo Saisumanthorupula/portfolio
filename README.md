@@ -8,7 +8,7 @@ Personal portfolio website of **Saisumanth Orupula**, DevOps & Playwright Automa
 
 | Section | What it shows |
 |---|---|
-| Home | Auto-scrolling hero slider (photo + Accenture) with dot indicators |
+| Home | Auto-scrolling hero slider (photo + Accenture) with dot indicators; dark mode toggle in the nav bar |
 | About me | Short introduction and career focus |
 | Skills | Playwright, TypeScript, Cucumber, Azure DevOps, GitHub Actions, Docker |
 | Experience | Automation Engineer at Accenture (May 2024 – Present) |
@@ -52,6 +52,7 @@ The Google contact form only loads fully when the page is served over the web.
 - **Experience section** with the Accenture role, dates, 400+ automated test cases and a logo badge.
 - **Hero slider:** the photo and an Accenture image crossfade automatically in a loop. Dot indicators below the images are clickable, and you can swipe on touch screens. It pauses on hover and when the tab is hidden.
 - **Hero animation:** gentle fade-in and slow zoom on the images.
+- **Dark mode toggle:** a moon/sun button in the nav bar. It follows the device's light/dark setting on the first visit and remembers the visitor's choice afterwards.
 - **Visitor counter** badge, centred in the footer.
 - **Right-click message:** shows "Right click was disabled by Sumanth." (This does not truly protect images.)
 - **About me:** now text only, with a centred role line and a readable single column. The old photo was removed.
@@ -75,6 +76,7 @@ The Google contact form only loads fully when the page is served over the web.
 | Hero | Single static photo | Auto-scrolling slider with indicators |
 | Experience | None | Accenture timeline card |
 | Images | Loose files in the root | Organised in `images/` |
+| Theme | Light only | Light and dark mode toggle |
 | Visitor counter | Third-party script and Corona link | Simple footer badge |
 | Skills bars | Mismatched labels and a stray `6` | Accurate and consistent |
 
@@ -82,4 +84,4 @@ The Google contact form only loads fully when the page is served over the web.
 
 - Email: saisumanthorupula@gmail.com
 - LinkedIn: https://www.linkedin.com/in/saisumanthorupula/
-- GitHub: https://github.com/sumanth83
+- GitHub: https://github.com/Saisumanthorupula
