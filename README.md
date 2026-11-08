@@ -84,4 +84,4 @@ The Google contact form only loads fully when the page is served over the web.
 
 - Email: saisumanthorupula@gmail.com
 - LinkedIn: https://www.linkedin.com/in/saisumanthorupula/
-- GitHub: https://github.com/sumanth83
+- GitHub: https://github.com/Saisumanthorupula
