@@ -13,7 +13,7 @@
   <meta property="og:image" content="images/myphoto.jpg">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 
   <!-- Apply the saved (or device) theme before the page paints, to avoid a flash -->
   <script>
@@ -62,9 +62,6 @@
           <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
           <button class="dot" type="button" aria-label="Show slide 2"></button>
         </div>
-        <button class="pause-btn" id="pauseBtn" type="button" aria-label="Pause slideshow" title="Pause slideshow">
-          <i class="fa fa-pause" aria-hidden="true"></i>
-        </button>
       </div>
     </section>
 
@@ -202,19 +199,8 @@
       var slides = hero.querySelectorAll(".slide");
       var dots = hero.querySelectorAll(".dot");
       var box = document.getElementById("slides");
-      var pauseBtn = document.getElementById("pauseBtn");
       var current = 0, timer = null, DELAY = 4500;
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      // visitors who prefer reduced motion start paused; others can pause any time
-      var userPaused = reduce;
-
-      function updatePauseBtn() {
-        var label = userPaused ? "Play slideshow" : "Pause slideshow";
-        pauseBtn.setAttribute("aria-label", label);
-        pauseBtn.setAttribute("title", label);
-        pauseBtn.querySelector("i").className = "fa " + (userPaused ? "fa-play" : "fa-pause");
-        hero.classList.toggle("is-paused", userPaused);
-      }
 
       function show(n) {
         current = (n + slides.length) % slides.length;
@@ -226,14 +212,9 @@
           else dots[i].removeAttribute("aria-current");
         }
       }
-      function start() { if (!userPaused && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
+      function start() { if (!reduce && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
       function stop() { clearInterval(timer); timer = null; }
 
-      pauseBtn.addEventListener("click", function () {
-        userPaused = !userPaused;
-        updatePauseBtn();
-        if (userPaused) stop(); else start();
-      });
       // keyboard users: don't move slides while focus is inside the slider
       hero.addEventListener("focusin", stop);
       hero.addEventListener("focusout", start);
@@ -257,7 +238,6 @@
         x0 = null; start();
       });
 
-      updatePauseBtn();
       start();
     })();
 
