@@ -13,22 +13,36 @@
   <meta property="og:image" content="images/myphoto.jpg">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
+
+  <!-- Apply the saved (or device) theme before the page paints, to avoid a flash -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav id="navbar" aria-label="Main navigation">
     <a href="#home" class="brand">Sum@nth</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skill">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skill">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark mode">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+      </button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
   </nav>
 
@@ -43,9 +57,14 @@
           <img src="images/accenture-logo-2.jpg" alt="Accenture" title="Accenture">
         </figure>
       </div>
-      <div class="dots" id="dots" role="group" aria-label="Choose slide">
-        <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
-        <button class="dot" type="button" aria-label="Show slide 2"></button>
+      <div class="controls">
+        <div class="dots" id="dots" role="group" aria-label="Choose slide">
+          <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Show slide 2"></button>
+        </div>
+        <button class="pause-btn" id="pauseBtn" type="button" aria-label="Pause slideshow" title="Pause slideshow">
+          <i class="fa fa-pause" aria-hidden="true"></i>
+        </button>
       </div>
     </section>
 
@@ -183,8 +202,19 @@
       var slides = hero.querySelectorAll(".slide");
       var dots = hero.querySelectorAll(".dot");
       var box = document.getElementById("slides");
+      var pauseBtn = document.getElementById("pauseBtn");
       var current = 0, timer = null, DELAY = 4500;
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // visitors who prefer reduced motion start paused; others can pause any time
+      var userPaused = reduce;
+
+      function updatePauseBtn() {
+        var label = userPaused ? "Play slideshow" : "Pause slideshow";
+        pauseBtn.setAttribute("aria-label", label);
+        pauseBtn.setAttribute("title", label);
+        pauseBtn.querySelector("i").className = "fa " + (userPaused ? "fa-play" : "fa-pause");
+        hero.classList.toggle("is-paused", userPaused);
+      }
 
       function show(n) {
         current = (n + slides.length) % slides.length;
@@ -196,8 +226,17 @@
           else dots[i].removeAttribute("aria-current");
         }
       }
-      function start() { if (!reduce && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
+      function start() { if (!userPaused && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
       function stop() { clearInterval(timer); timer = null; }
+
+      pauseBtn.addEventListener("click", function () {
+        userPaused = !userPaused;
+        updatePauseBtn();
+        if (userPaused) stop(); else start();
+      });
+      // keyboard users: don't move slides while focus is inside the slider
+      hero.addEventListener("focusin", stop);
+      hero.addEventListener("focusout", start);
 
       for (var i = 0; i < dots.length; i++) {
         (function (n) { dots[n].addEventListener("click", function () { show(n); stop(); start(); }); })(i);
@@ -218,7 +257,32 @@
         x0 = null; start();
       });
 
+      updatePauseBtn();
       start();
+    })();
+
+    // Dark mode toggle (choice is remembered in the browser)
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("themeToggle");
+      var icon = btn.querySelector("i");
+
+      function apply(theme) {
+        root.setAttribute("data-theme", theme);
+        var dark = theme === "dark";
+        btn.setAttribute("aria-pressed", dark);
+        btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        btn.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+        icon.className = "fa " + (dark ? "fa-sun-o" : "fa-moon-o");
+      }
+
+      apply(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+
+      btn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        apply(next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
     })();
 
     // Show a message on right click
