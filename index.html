@@ -34,8 +34,19 @@
 
   <main>
     <!-- Home -->
-    <section id="home" class="hero">
-      <img src="images/myphoto.jpg" alt="Saisumanth Orupula" title="Saisumanth Orupula">
+    <section id="home" class="hero" role="region" aria-roledescription="carousel" aria-label="Highlights">
+      <div class="slides" id="slides">
+        <figure class="slide slide-photo active" aria-label="Slide 1 of 2">
+          <img src="images/myphoto.jpg" alt="Saisumanth Orupula" title="Saisumanth Orupula">
+        </figure>
+        <figure class="slide slide-logo" aria-label="Slide 2 of 2">
+          <img src="images/accenture-logo-2.jpg" alt="Accenture" title="Accenture">
+        </figure>
+      </div>
+      <div class="dots" id="dots" role="group" aria-label="Choose slide">
+        <button class="dot active" type="button" aria-label="Show slide 1" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Show slide 2"></button>
+      </div>
     </section>
 
     <!-- About -->
@@ -165,6 +176,50 @@
         toggle.setAttribute("aria-expanded", "false");
       }
     });
+
+    // Hero slider: auto-advances and loops, with clickable dots and swipe
+    (function () {
+      var hero = document.getElementById("home");
+      var slides = hero.querySelectorAll(".slide");
+      var dots = hero.querySelectorAll(".dot");
+      var box = document.getElementById("slides");
+      var current = 0, timer = null, DELAY = 4500;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function show(n) {
+        current = (n + slides.length) % slides.length;
+        for (var i = 0; i < slides.length; i++) {
+          var on = i === current;
+          slides[i].classList.toggle("active", on);
+          dots[i].classList.toggle("active", on);
+          if (on) dots[i].setAttribute("aria-current", "true");
+          else dots[i].removeAttribute("aria-current");
+        }
+      }
+      function start() { if (!reduce && !timer) timer = setInterval(function () { show(current + 1); }, DELAY); }
+      function stop() { clearInterval(timer); timer = null; }
+
+      for (var i = 0; i < dots.length; i++) {
+        (function (n) { dots[n].addEventListener("click", function () { show(n); stop(); start(); }); })(i);
+      }
+
+      hero.addEventListener("mouseenter", stop);
+      hero.addEventListener("mouseleave", start);
+      document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+
+      // swipe on touch screens
+      var x0 = null;
+      box.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+      box.addEventListener("touchend", function (e) {
+        if (x0 !== null) {
+          var dx = e.changedTouches[0].clientX - x0;
+          if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+        }
+        x0 = null; start();
+      });
+
+      start();
+    })();
 
     // Show a message on right click
     document.addEventListener("contextmenu", function (e) {
